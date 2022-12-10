@@ -1,0 +1,38 @@
+class MyStateful extends StatefulWidget {
+  MyStateful({super.key, this.q, this.a1, this.a2, this.a3, this.a4, this.anss});
+  final String? q;
+  final String? a1;
+  final String? a2;
+  final String? a3;
+  final String? a4;
+  final String ?anss;
+  @override
+  State<MyStateful> createState() => _MyStatefulState();
+}
+
+class _MyStatefulState extends State<MyStateful> {
+  var ans ='';
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(widget.q!, style:TextStyle(fontSize: 17.0)),
+          RadioListTile(value: widget.a1, groupValue: ans, onChanged: (value){setState(() {
+            ans = value!;
+          });}, title: Text(widget.a1!),activeColor: Colors.blue,),
+          RadioListTile(value: widget.a2, groupValue: ans, onChanged: (value){setState(() {
+            ans = value!;
+          });}, title: Text(widget.a2!),activeColor: Colors.blue,),
+          RadioListTile(value: widget.a3, groupValue: ans, onChanged: (value){setState(() {
+            ans = value!;
+          });}, title: Text(widget.a3!),activeColor: Colors.blue,),
+          RadioListTile(value: widget.a4, groupValue: ans, onChanged: (value){setState(() {
+            ans = value!;
+          });}, title: Text(widget.a4!),activeColor: Colors.blue,),
+          Center(child: Text(ans.toString()),),
+        ],
+      ),);
+  }
+}
